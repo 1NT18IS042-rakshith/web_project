@@ -1,0 +1,107 @@
+<Html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">   
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<style type="text/css">
+        #timeOut
+        {
+            background-color: yellow;
+        }
+    </style>
+<title>  
+Registration Page  
+</title> 
+<script type="text/javascript">
+	var IdealTimeOut = 10; //10 seconds
+	var idleSecondsTimer = null;
+	var idleSecondsCounter = 0;
+	document.onclick = function () { idleSecondsCounter = 0; };
+	document.onmousemove = function () { idleSecondsCounter = 0; };
+	document.onkeypress = function () { idleSecondsCounter = 0; };
+	idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+
+	function CheckIdleTime() {
+		idleSecondsCounter++;
+		var oPanel = document.getElementById("timeOut");
+		if (oPanel) {
+			oPanel.innerHTML = (IdealTimeOut - idleSecondsCounter);
+		}
+		if (idleSecondsCounter >= IdealTimeOut) {
+			window.clearInterval(idleSecondsTimer);
+			alert("Your Session has expired. Please login again.");
+			window.location = "index.html";
+		}
+	}
+</script>
+<script language="JavaScript">
+	function submitForm()
+	{
+	  alert("Going to sbmit form");
+	  document.frm.submit();
+	}
+ </script> 
+</head>  
+<body bgcolor="Lightskyblue">  
+<br>  
+<br> 
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+body {
+  background-image: url('bg3.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+</style>
+<center>
+	<form id="form1" runat="server">
+		<div>
+			You will be auto logged out in <span id="timeOut"></span> seconds.
+		</div>
+		</form>
+<form name="frm" action="/register" method="post"> <br>
+  <b><h2>Register Here</h2></b>
+<label> Firstname: </label>         
+<input class="input-field" type="text"  placeholder="firstname" name="fname" id="fname" size="15" required/> <br> <br>  
+<label> Middlename: </label>     
+<input class="input-field" type="text" placeholder="middlename" name="mname" id="mname"size="15" required/> <br> <br>  
+<label> Lastname: </label>         
+<input  class="input-field" type="text" placeholder="lastname" name="lname" id="lname" size="15" required/> <br> <br>  
+  
+<label>   
+ 
+<label>   
+Gender :  
+</label><br>  
+<input type="radio" name="gender" value="male"/> Male <br>  
+<input type="radio" name="gender" value="female"/> Female <br>  
+<input type="radio" name="gender" value="other"/> Other  
+<br>  
+<br>  
+  
+<label>   
+Phone :  
+</label>  
+<input type="text" name="country code"  value="+91" size="2" required/>   
+<input type="text"placeholder="enter number" name="phone" id="phone" size="10" required/> <br> <br>  
+Address  
+<br>  
+<textarea cols="80" rows="5"  name="address" id="address"  value="address">  
+</textarea>  
+<br> <br>  
+Email:  
+<input type="email" placeholder="your email id" id="email" name="email" required/> <br>    
+<br> <br>  
+Password:  
+<input type="Password" id="password" name="password"> <br>   
+<br> <br>  
+Re-type password:  
+<input type="Password" id="repass" name="repass"> <br> <br> 
+  
+ 	<a href="javascript: submitForm();"><input type="button" value="Submit"/></a> 
+</form>  
+
+</center>
+</body>  
+</html>  

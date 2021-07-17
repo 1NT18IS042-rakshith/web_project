@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
+<title>movies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+body {
+  background-image: url('mov.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+</style>
+<style>
+  .container {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  </style>
+
+</head>
+
+<body>
+  
+
+<center>
+<div class="w3-container">
+  <span class="w3-tag w3-jumbo w3-red">S</span>
+  <span class="w3-tag w3-jumbo">H</span>
+  <span class="w3-tag w3-jumbo w3-yellow">O</span>
+  <span class="w3-tag w3-jumbo">W</span>
+  <span class="w3-tag w3-jumbo w3-red">S</span>
+  
+</div>
+</center>
+
+
+<div class="w3-content w3-section" style="max-width:480px">
+  <a href="book.html">
+  <img class="mySlides" src="svp.jpg" style="width:90%" >
+    <img class="mySlides" src="kgf.jpg" style="width:90%">
+  <img class="mySlides" src="ff.jpg" style="width:90%">
+  <img class="mySlides" src="bw.jpg" style="width:90%"></a>
+</div>
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html>
